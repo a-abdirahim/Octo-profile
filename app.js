@@ -4,9 +4,15 @@ const fetch = require('node-fetch').default;
 const app = express()
 // Routes
 const profiles = require('./routes/profileRoutes')
+const views = require('./routes/viewRoutes')
 
 app.use(express.static(`${__dirname}/public`))
 
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static('css'));
+
+app.use('/', views)
 
 app.use('/api/v1/', profiles)
 
