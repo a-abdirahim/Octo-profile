@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,500&display=swap');
+:root{
+    --primary-color: #e6e6e6;
+    --secondary-color: #292929;
+    --accent-color :  #555555;
+
+    --primary-font: 'Poppins', sans-serif;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--primary-color);
+    font-family: var(--primary-font);
+    position: relative;
+}
+
+section{
+    width: 70%;
+    margin: 20px auto;
+}
+@media screen and (max-width: 1250px){
+    section{
+        width: 90%;
+    }
+}
+
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    padding: 2rem 0 ;
+}
+
+
+@media screen and (max-width: 600px){
+    .profile>h1{
+        font-size: 1.2rem;
+    }
+}   
+@media screen and (max-width: 500px){
+    .profile>h1{
+        font-size: 1rem;
+    }
+}   
+
+.profile-description{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.profile-description>a{
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: .9rem;
+    color:var(--accent-color);
+    transition: 300ms ease all;
+}
+
+a:hover{
+    color:black;
+}
+
+.joined-at{
+    font-size: .8rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.account-details{
+    width: 60%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    align-items: center;
+}
+
+@media screen and (max-width: 400px){
+    .profile>h1{
+        font-size: .7rem;
+    }
+    .profile-description>a{
+        font-size: 1rem;
+        text-align: center;
+    }
+    .joined-at{
+        font-size: .7rem;
+    }
+}   
+
+
+
+.repo{
+    text-align: center;
+}
+
+.repo>p{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.repo>h2{
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.my-repos{
+    width: 100%;
+    margin-top: 30px;
+    padding: 1.3rem;
+}
+
+.my-repos>h1{
+    letter-spacing: 1px;
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    margin: 10px 30px;
+}
+@media screen and (max-width: 600px){
+    .account-details{
+        gap: 1.5rem;
+    }
+    .repo>p{
+        font-size: 1rem;
+    }
+    .repo>h2{
+        font-size: .8rem;
+    }
+    .my-repos>h1
+    {
+        font-size: 1rem;
+        text-align: center;
+    }
+}
+.repo-wrapper{
+    padding: 1rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.repo-container{
+    width: 360px;
+    height: 180px;
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding:.6rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.repo-name{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 8px;
+}
+
+.repo-name>p{
+    font-size: .9rem;
+    letter-spacing: 1px;
+}
+.repo-description{
+    font-size: .8rem;
+    line-height: 1.3rem;
+    color: var(--primary-color);
+}
+
+.extras{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .9rem;
+    color: var(--primary-color);
+}
+
+.stars{
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+@media screen and (max-width: 954px){
+    .my-repos>h1{
+        text-align: center;
+    }
+    .repo-wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+footer{
+    width: 100%;
+    bottom: 0%;
+    text-align: center;
+}
+
+footer>p{
+    font-size: .9rem;
+}
+
+
+
+@media screen and (max-width: 500px){
+
+    .my-repos{
+        padding: 0;
+    }
+    .repo-container{
+        display: flex;
+        gap: 1rem;
+    }
+    .repo-description{
+        font-size: .8rem;
+    }   
+    .repo-wrapper{
+        display: flex;
+        gap: 1rem;
+        padding: 0;
+    }
+    .repo-container{
+        width: 100%;
+    }
+
+    .footer>p{
+        font-size: .6rem;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .repo-description{
+        font-size: .75rem;
+        line-height: 1.3rem;
+    }   
+}
+@media screen and (max-width: 290px){
+    .repo-description{
+        font-size: .7rem;
+        line-height: 1.1rem;
+    }   
+    .repo>p{
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    
+    .repo>h2{
+        font-size: .6rem;
+        letter-spacing: 1px;
+    }
+}

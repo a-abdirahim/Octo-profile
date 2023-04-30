@@ -1,0 +1,17 @@
+{
+  "name": "octprofile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "abdulhamid",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "node-fetch": "^2.6.9",
+    "nodemon": "^2.0.22"
+  }
+}
