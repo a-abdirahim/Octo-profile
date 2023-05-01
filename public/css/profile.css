@@ -56,7 +56,7 @@ body{
 }
 
 section{
-    width: 90%;
+    width: 100%;
     margin: 20px auto;
 }
 @media screen and (max-width: 1250px){
@@ -156,8 +156,8 @@ a:hover{
 }
 
 .my-repos{
-    width: 100%;
-    margin-top: 30px;
+    width: 90%;
+    margin: 0px auto;
     padding: 1.3rem;
 }
 
@@ -330,29 +330,37 @@ footer>p{
 }
 
 .stats-container{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     padding: 1rem;
 }
 .chart{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
     margin: 10px auto;
 }
-
-.chart>p{
-    color: #555555;
-    font-size: .9rem;
-}
 .chart-container{
-    width: 500px;
-    padding: 1rem;
+    max-width: 600px;
+    padding: 2rem;
     background-color: #fff;
+    color: #292929;
     border:1pxs solid#555555;
     border-radius: 10px;
-
 }
 
+.chart-container>p{
+    display: inline-block;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    background-image: linear-gradient(90deg, rgb(209, 213, 218) 50%, rgba(255, 255, 255, 0) 0px);
+    background-position: center bottom;
+    background-repeat: repeat-x;
+    background-size: 10px 2px;
+    padding-bottom: 6px;
+}
+
+.chart-container:nth-child(2) p{
+    margin-bottom: 30px;
+}

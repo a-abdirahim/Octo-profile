@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/profile.css" />
-    <script src="https://use.fontawesome.com/cb6817568b.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.min.js"></script>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./js/index.js" defer></script>
     <title>Octo-profile</title>
   </head>
@@ -42,6 +42,25 @@
           <h2>Following</h2>
         </div>
       </div>
+      <!-- charts -->
+      <div class="stats-container">
+      <p class="charts"></p>
+      <div class="chart">
+        <div class="chart-container">
+          <p>Top Languages</p>
+          <canvas id="myChart" width="300px" height="300px"></canvas>
+        </div>
+        <div class="chart-container">
+          <p>Top Starred</p>
+          <canvas id="myChart2" width="300px" height="300px"></canvas>
+        </div>
+        <div class="chart-container">
+          <p>Most Starred</p>
+          <canvas id="myChart3" width="300px" height="300px"></canvas>
+        </div>      
+      </div>
+    </div>
+      <!-- repos -->
       <div class="my-repos">
         <h1 class="title">My Repositories</h1>
         <div class="repo-wrapper">
@@ -126,21 +145,7 @@
         </div>
       </div>
     </section>
-    <!-- <div class="stats-container">
-      <p class="stats">Stats</p>
-      <div class="chart">
-        <p class="charts"></p>
-        <div class="chart-container">
-          <canvas id="myChart" width="100px" height="100px"></canvas>
-        </div>
-        <div class="chart-container">
-          <canvas id="myChart2" width="100px" height="100px"></canvas>
-        </div>
-        <div class="chart-container">
-          <canvas id="myChart3" width="100px" height="100px"></canvas>
-        </div>      
-      </div>
-    </div> -->
+    
     <footer>
       <p>
         Built with <span>Node-js </span> · <span>Chart.js </span> ·
