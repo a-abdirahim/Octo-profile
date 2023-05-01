@@ -37,9 +37,10 @@ block content
               i.fa.fa-github.fa-lg(30% increase)
               p #{repo.name ? repo.name.slice(0, 20) + (repo.name.length > 20 ? '...' : '') : ''}
             p.repo-description #{repo.description ? repo.description.slice(0, 70) + (repo.description.length > 70 ? '...' : '') : ''}
-            .extras 
-              .stars 
-                i.fa.fa-star
-                p.num-stars=repo.watchers_count
-              p.size-repo=repo.size 
-                span kb
+            .star-gazer
+              .extras 
+                .stars 
+                  i.fa.fa-star
+                  p.num-stars=repo.watchers_count
+                p.size-repo=repo.size 
+                  span kb
