@@ -1,6 +1,6 @@
 ## A nicer look at github profiles!
 
-## Built eith
+## Built with
     * Node-js
     * Github Api
     * pug
