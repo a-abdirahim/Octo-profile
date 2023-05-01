@@ -19,4 +19,18 @@ exports.getUserDetails= async(req, res)=>{
     }catch(err){
         console.log(err)
     }
-} 
+}
+exports.getTopStarredRepos= async(username) =>{
+    try {
+        const response = await fetch(`https://api.github.com/users/${username}/repos`);
+        const repos = await response.json();
+    
+        // Sort the repositories by stargazers_count in descending order
+        repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+    
+        // Get the first 5 repositories in the sorted array
+        const topRepos = repos.slice(0, 5);
+    } catch (error) {
+        console.log(error)
+    }
+ }

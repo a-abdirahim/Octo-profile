@@ -20,8 +20,28 @@ body{
     position: relative;
 }
 
+.queries-left{
+    position: absolute;
+    width: 20%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.queries-left>.num-of-queries{
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    color: #555555;
+}
+
+.queries-left>.des{
+    font-size: .9rem;
+    color: #555555;
+}
+
 section{
-    width: 70%;
+    width: 90%;
     margin: 20px auto;
 }
 @media screen and (max-width: 1250px){
@@ -37,6 +57,13 @@ section{
     flex-direction: column;
     gap: 5px;
     padding: 2rem 0 ;
+}
+
+.profile>img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    clip-path: calc();
 }
 
 
@@ -142,21 +169,22 @@ a:hover{
     }
 }
 .repo-wrapper{
-    padding: 1rem 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto, 1fr);
+    grid-gap: 2rem;
 }
 .repo-container{
-    width: 360px;
-    height: 180px;
+    width: 350px;
+    height: 100%;
     background-color: var(--secondary-color);
     color: #fff;
-    padding:.6rem;
+    padding:1rem;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 10px;
 }
 
 
@@ -168,7 +196,7 @@ a:hover{
 }
 
 .repo-name>p{
-    font-size: .9rem;
+    font-size: 1.1rem;
     letter-spacing: 1px;
 }
 .repo-description{
@@ -178,10 +206,11 @@ a:hover{
 }
 
 .extras{
+    bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: .9rem;
+    font-size: .8rem;
     color: var(--primary-color);
 }
 
@@ -190,7 +219,7 @@ a:hover{
     align-items: center;
     gap: .4rem;
 }
-@media screen and (max-width: 954px){
+@media screen and (max-width: 955px){
     .my-repos>h1{
         text-align: center;
     }
@@ -198,6 +227,21 @@ a:hover{
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .repo-container{
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 510px){
+    .repo-wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .repo-container{
+        margin: 0 auto;
     }
 }
 
@@ -260,4 +304,31 @@ footer>p{
         font-size: .6rem;
         letter-spacing: 1px;
     }
+}
+
+.stats-container{
+    width: 80%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+.chart{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 10px auto;
+}
+
+.chart>p{
+    color: #555555;
+    font-size: .9rem;
+}
+.chart-container{
+    width: 500px;
+    padding: 1rem;
+    background-color: #fff;
+    border:1pxs solid#555555;
+    border-radius: 10px;
+
 }

@@ -1,70 +1,45 @@
 extends base
 
 block content
-
+  .queries-left 
+    p.num-of-queries
+      if requestlimit === 0
+        |0
+      else
+        =`${requestlimit}/60`
+    p.des Request Left 
   section 
     .profile 
-      img.profile-img(src=`${user.AvatarURL}` alt="")
+      img.profile-img(src=`${user.avatar_url}` alt="")
       h1.name=user.name
       .profile-description 
-        a(href=`${user.}`)= `@${user.login}`
+        a(href=`user.url'`)= `@${user.login}`
         p.joined-at 
           span Joined 01-23-2023 
            i.fa.fa-calendar 
     .account-details 
       .repo 
-        p 4
+        p=user.public_repos
         h2 Repositories 
       .repo 
-        p 23
+        p=user.followers
         h2 Followers 
       .repo 
-        p 4
+        p=user.following
         h2 Folowing
     .my-repos 
       h1.title My Repositories 
       .repo-wrapper 
-        .repo-container 
-          .repo-name 
-            i.fa.fa-github.fa-lg(30% increase)
-            p Tip-calculator
-          p.repo-description Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciuntperferendis fugiat deleniti facilis, nisi similique, veniam velitest molestias tempora hic consectetur aliquam quasi libero.
-          .extras 
-            .stars 
-              i.fa.fa-stars 
-              p.num-stars 4
-            p.size-repo 5123 
-              span kb
-        .repo-container 
-          .repo-name 
-            i.fa.fa-github.fa-lg(30% increase)
-            p Tip-calculator
-          p.repo-description Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciuntperferendis fugiat deleniti facilis, nisi similique, veniam velitest molestias tempora hic consectetur aliquam quasi libero.
-          .extras 
-            .stars 
-              i.fa.fa-stars 
-              p.num-stars 4
-            p.size-repo 5123 
-              span kb
-        .repo-container 
-          .repo-name 
-            i.fa.fa-github.fa-lg(30% increase)
-            p Tip-calculator
-          p.repo-description Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciuntperferendis fugiat deleniti facilis, nisi similique, veniam velitest molestias tempora hic consectetur aliquam quasi libero.
-          .extras 
-            .stars 
-              i.fa.fa-stars 
-              p.num-stars 4
-            p.size-repo 5123 
-              span kb
-        .repo-container 
-          .repo-name 
-            i.fa.fa-github.fa-lg(30% increase)
-            p Tip-calculator
-          p.repo-description Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciuntperferendis fugiat deleniti facilis, nisi similique, veniam velitest molestias tempora hic consectetur aliquam quasi libero.
-          .extras 
-            .stars 
-              i.fa.fa-stars 
-              p.num-stars 4
-            p.size-repo 5123 
-              span kb
+        each repo in repos
+          .repo-container 
+            .repo-name 
+              i.fa.fa-github.fa-lg(30% increase)
+              p #{repo.name ? repo.name.slice(0, 20) + (repo.name.length > 20 ? '...' : '') : ''}
+            p.repo-description #{repo.description ? repo.description.slice(0, 70) + (repo.description.length > 70 ? '...' : '') : ''}
+            .extras 
+              .stars 
+                i.fa.fa-star
+                p.num-stars=repo.watchers_count
+              p.size-repo=repo.size 
+                span kb
+    canvas#myChart(width='400', height='400')
