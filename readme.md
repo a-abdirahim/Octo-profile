@@ -1,9 +1,13 @@
 ## A nicer look at github profiles!
-![Screenshot](https://github.com/a-abdirahim/Octo-profile/blob/master/public/assets/profile-page.png?raw=true "My profile")
 
 ## Built with
+<<<<<<< HEAD
     * Node-js
     * Express-js
+=======
+    * Node.js
+    * Express.js
+>>>>>>> 287fefee79a7c1866d17107d3093a9893aa6728d
     * Github Api
     * pug
     * css
