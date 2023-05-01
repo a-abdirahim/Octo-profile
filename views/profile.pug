@@ -1,6 +1,7 @@
 extends base
 
 block content
+  a.home(href="/") Home
   .queries-left 
     p.num-of-queries
       if requestlimit === 0
@@ -42,4 +43,3 @@ block content
                 p.num-stars=repo.watchers_count
               p.size-repo=repo.size 
                 span kb
-    canvas#myChart(width='400', height='400')

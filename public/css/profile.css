@@ -20,6 +20,21 @@ body{
     position: relative;
 }
 
+.home{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-decoration: none;
+    color: #555555;
+    letter-spacing: 2px;
+    transition: all .3s ease;
+    transition: transform 300s ease;
+}
+
+.home:hover{
+    color: black;
+}
+
 .queries-left{
     position: absolute;
     width: 20%;
@@ -244,8 +259,6 @@ a:hover{
         margin: 0 auto;
     }
 }
-
-
 footer{
     width: 100%;
     bottom: 0%;
@@ -332,3 +345,4 @@ footer>p{
     border-radius: 10px;
 
 }
+

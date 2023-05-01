@@ -7,7 +7,7 @@ exports.getHome= async(req,res)=>{
         
         res.status(200).render('overview',{ })
     } catch (error) {
-        
+        console.log(error)
     }
 }
 exports.getProfile= async(req,res)=>{
@@ -39,6 +39,14 @@ exports.getProfile= async(req,res)=>{
             requestlimit: limitsremaining
         });
     } catch (error) {
-        console.log(error)
+        if (error.response && error.response.status === 404) {
+            const errorMessage = 'User not found 🤔';
+            res.render('error', { errorMessage });
+          } else {
+            const errorMessage = 'It looks like you reached the rate limit 😥! Try again in 60mins'
+            res.status(500).render('error',{
+                errorMessage
+            });
+          }
     }
 }
