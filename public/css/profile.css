@@ -335,18 +335,18 @@ footer>p{
     padding: 1rem;
 }
 .chart{
-    width: 90%;
+    width: 80%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
     margin: 10px auto;
 }
 .chart-container{
-    max-width: 600px;
+    max-width: 500px;
+    max-height: 400px;
     padding: 2rem;
     background-color: #fff;
     color: #292929;
-    border:1pxs solid#555555;
     border-radius: 10px;
 }
 
@@ -359,8 +359,15 @@ footer>p{
     background-repeat: repeat-x;
     background-size: 10px 2px;
     padding-bottom: 6px;
+
 }
 
 .chart-container:nth-child(2) p{
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.canvas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -15,7 +15,7 @@ exports.getProfile= async(req,res)=>{
         // Fetch details from api
         const username = req.query.username;
         const response = await fetch(`https://api.github.com/users/${username}`);
-        console.log(response.status)
+        // console.log(response.status)
         if(response.status === 404){
             const errorMessage = 'User not found 🤔 ! Please try again'
             res.render('error', {
