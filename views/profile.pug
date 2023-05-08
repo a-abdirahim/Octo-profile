@@ -16,7 +16,7 @@ block content
       .profile-description 
         a(href=`user.url'`)= `@${user.login}`
         p.joined-at 
-          span Joined 01-23-2023 
+          span= `Joined ${joinedAt}`
            i.fa.fa-calendar 
     .account-details 
       .repo 
@@ -39,7 +39,7 @@ block content
           .canvas 
             canvas#myChart2(width="250px" height="250px")
         .chart-container 
-          p Most Starred
+          p Stars per Language
           .canvas 
             canvas#myChart3(width="300px" height="300px")
     .my-repos 
@@ -58,4 +58,4 @@ block content
                   p.num-stars=repo.watchers_count
                 p.size-repo=repo.size 
                   span kb
-  script(src="/bundle.js" defer) 
+  //- script(src="/bundle.js" defer) 

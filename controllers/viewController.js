@@ -1,11 +1,13 @@
-const request = require('request')
-const requestPromise = require('request-promise')
-const Chart = require('chart.js');
+const cache = require('memory-cache');
+
 
 exports.getHome= async(req,res)=>{
     try {
-        
-        res.status(200).render('overview',{ })
+        const response = await fetch('https://api.github.com/rate_limit');
+        const data = await response.json();
+        // Extract the remaining requests value from the response
+        const remainingRequests = data.resources.core.remaining;
+        res.status(200).render('overview',{ requestlimit: remainingRequests })
     } catch (error) {
         console.log(error)
     }
@@ -31,14 +33,16 @@ exports.getProfile= async(req,res)=>{
             res.status(500).render('error',{
                 errorMessage
             });
-            sreturn
+            return
         }
+        // storing the rate limit in cache
+        cache.put('rateLimitRemaining', limitsremaining);
         const repositories = await fetch(`https://api.github.com/users/${username}/repos`)
         
         // Storing the responses in variables
         const userData = await response.json();
         const reposData = await repositories.json();
-        
+        const joinedAt = new Date(userData.created_at).toDateString();
 
     // Sort the repositories by stargazers_count in descending order
     // reposData.sort((a, b) => b.stargazers_count - a.stargazers_count);
@@ -51,7 +55,8 @@ exports.getProfile= async(req,res)=>{
             title: 'profile',
             user: userData,
             repos: topRepos,
-            requestlimit: limitsremaining
+            requestlimit: limitsremaining,
+            joinedAt: joinedAt,
         });
     } catch (error) {
         console.log(error)
