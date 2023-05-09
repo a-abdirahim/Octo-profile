@@ -129,7 +129,7 @@ const fetchData = async () => {
         datasets: [
           {
             label: "Stars per Language",
-            data: data,
+            data: data2.map((datum) => datum.stars),
             backgroundColor: [
               "#ff91a9",
               "#72bef1",

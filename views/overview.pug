@@ -1,13 +1,6 @@
 extends base
 
 block content  
-    .queries-left 
-        p.num-of-queries
-        if requestlimit === 0
-            |0 /60
-        else
-            =`${requestlimit}/60`
-        p.des Request Left
     .home 
         .container 
             img.logo(src="./assets/logo.png", alt="")

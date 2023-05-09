@@ -1,39 +1,41 @@
-exports.getUserDetails= async(req, res)=>{
-    try{
-        const username = req.params.username;
-        const apiUrl = `https://api.github.com/users/${username}`
-        const repoUrl = `https://api.github.com/users/${username}/repos`
-        const [userRes, repoRes] = await Promise.all([
-            fetch(apiUrl),
-            fetch(repoUrl)
-        ])
-        const user = await userRes.json();
-        const repos = await repoRes.json();
-        res.status(200).json({
-        status: 'Success',
-        data: {
-            user,
-            repos,
+const cache = require('memory-cache');
+const catchAsync = require('../utils/catchAsync');
+
+exports.getUserDetails= catchAsync(async(req, res, next)=>{
+        // Fetch details from api
+        const username = req.query.username;
+        const response = await fetch(`https://api.github.com/users/${username}`);
+         // Getting the rate limit remaining from the headers
+         const remainingRequests = response.headers;
+         const limitsremaining = remainingRequests.get('X-RateLimit-Remaining')
+         if(limitsremaining === 0){
+             const errorMessage = 'It looks like you reached the rate limit 😥! Try again in 60mins'
+             console.log(errorMessage)
+             res.status(500).render('error',{
+                 errorMessage
+             });
+             return
+         }
+        // check if theres user with username
+        if(response.status === 404){
+            const errorMessage = 'User not found 🤔 ! Please try again'
+            res.render('error', {
+                errorMessage
+            })
+            return
         }
-    })
-    }catch(err){
-        res.status(404).json({
-            status: 'fail',
-            message: err.message
-        })
-    }
-}
-exports.getTopStarredRepos= async(username) =>{
-    try {
-        const response = await fetch(`https://api.github.com/users/${username}/repos`);
-        const repos = await response.json();
-    
-        // Sort the repositories by stargazers_count in descending order
-        repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
-    
-        // Get the first 5 repositories in the sorted array
-        const topRepos = repos.slice(0, 5);
-    } catch (error) {
-        console.log(error)
-    }
- }
+       
+        const userData = await response.json();
+        const joinedAt = new Date(userData.created_at).toDateString();
+        // storing the rate limit in cache
+        cache.put('rateLimitRemaining', limitsremaining);
+        const repositories = await fetch(`https://api.github.com/users/${username}/repos`)
+        const repoData = await repositories.json();
+
+        //add it to the request object
+        req.userData = userData;
+        req.repositories = repoData;
+        req.limitsremaining = limitsremaining
+        req.joinedAt = joinedAt
+        next();
+})

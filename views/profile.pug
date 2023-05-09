@@ -14,7 +14,7 @@ block content
       img.profile-img(src=`${user.avatar_url}` alt="")
       h1.name=user.name
       .profile-description 
-        a(href=`user.url'`)= `@${user.login}`
+        a(href=`${user.html_url}`)= `@${user.login}`
         p.joined-at 
           span= `Joined ${joinedAt}`
            i.fa.fa-calendar 

@@ -192,11 +192,11 @@ a:hover{
 }
 .repo-container{
     width: 350px;
-    height: 130px;
-    background-color: var(--secondary-color);
-    color: #fff;
+    height: 150px;
+    background-color: #fff;
+    color: black;
     padding:1rem;
-    border-radius: 10px;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -218,7 +218,7 @@ a:hover{
 .repo-description{
     font-size: .8rem;
     line-height: 1.3rem;
-    color: var(--primary-color);
+    color: #000;
 }
 
 .star-gazer{
@@ -235,8 +235,7 @@ a:hover{
     justify-content: space-between;
     align-items: center;
     font-size: .8rem;
-    color: var(--primary-color);
-    
+    color: #000;    
 }
 
 .stars{
