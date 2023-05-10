@@ -37,9 +37,9 @@ exports.getUserDetails= async(req, res, next)=>{
         req.repositories = repoData;
         req.limitsremaining = limitsremaining
         req.joinedAt = joinedAt
+        next()
     } catch (error) {
+        res.status(400).json()
         console.log(error)
     }
-    // Fetch details from api
-
 }
