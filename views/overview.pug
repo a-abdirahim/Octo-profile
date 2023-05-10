@@ -6,7 +6,7 @@ block content
             img.logo(src="./assets/logo.png", alt="")
             h1.title Find your 
                 span Github-profile
-            form.textbox(action="/user/" method='GET')   
+            form.textbox(action=`/user/${username}` method='GET')   
                 .input-box 
                     input(type="text" placeholder="Type to Search" name="username" required)  
                     i.fa.fa-search.search-bar.fa-lg(30% increase)
