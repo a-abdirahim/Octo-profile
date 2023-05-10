@@ -1,6 +1,6 @@
 const cache = require('memory-cache');
-const catchAsync = require('../utils/catchAsync');
 const fetch = require('node-fetch');
+
 exports.getUserDetails= async(req, res, next)=>{
     try {
         const username = req.query.username;

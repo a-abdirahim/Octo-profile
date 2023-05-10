@@ -9,6 +9,6 @@ router
     .route('/')
     .get(viewsController.getHome)
 
-router.get('/user/:username',profileController.getUserDetails,viewsController.getProfile)
+router.route('/user/:username').get(profileController.getUserDetails,viewsController.getProfile)
 
 module.exports = router

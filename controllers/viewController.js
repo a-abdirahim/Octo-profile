@@ -7,6 +7,7 @@ exports.getHome= catcAsync( async(req,res)=>{
 )
 exports.getProfile= async(req,res)=>{
     try {
+        console.log(req)
         const userData = req.userData;
         const repositories = req.repositories;
         const limitsremaining = req.limitsremaining
