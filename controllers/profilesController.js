@@ -1,6 +1,6 @@
 const cache = require('memory-cache');
 const catchAsync = require('../utils/catchAsync');
-const fetch = require('whatwg-fetch')
+const fetch = require('node-fetch');
 exports.getUserDetails= catchAsync(async(req, res, next)=>{
         // Fetch details from api
         const username = req.query.username;
