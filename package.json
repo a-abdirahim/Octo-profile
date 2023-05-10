@@ -20,7 +20,8 @@
     "nodemon": "^2.0.22",
     "pug": "^3.0.2",
     "request": "^2.88.2",
-    "request-promise": "^4.2.6"
+    "request-promise": "^4.2.6",
+    "whatwg-fetch": "^3.6.2"
   },
   "devDependencies": {
     "webpack": "^5.82.0",

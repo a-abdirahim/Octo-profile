@@ -1,3 +1,5 @@
+import 'whatwg-fetch';
+
 document.addEventListener("DOMContentLoaded", () => {
   const ctx = document.getElementById("myChart").getContext("2d");
   const ctx2 = document.getElementById("myChart2").getContext("2d");
