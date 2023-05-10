@@ -1,8 +1,8 @@
 const cache = require('memory-cache');
 const catchAsync = require('../utils/catchAsync');
 const fetch = require('node-fetch');
-exports.getUserDetails= catchAsync(async(req, res, next)=>{
-        // Fetch details from api
+exports.getUserDetails= async(req, res, next)=>{
+    try {
         const username = req.query.username;
         const response = await fetch(`https://api.github.com/users/${username}`);
          // Getting the rate limit remaining from the headers
@@ -37,5 +37,9 @@ exports.getUserDetails= catchAsync(async(req, res, next)=>{
         req.repositories = repoData;
         req.limitsremaining = limitsremaining
         req.joinedAt = joinedAt
-        next();
-})
+    } catch (error) {
+        console.log(error)
+    }
+    // Fetch details from api
+
+}
